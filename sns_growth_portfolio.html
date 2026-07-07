@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SNS Marketing Portfolio</title>
+  <meta name="description" content="SNSマーケティング・AI動画制作・運用改善を支援するポートフォリオサイト" />
+  <style>
+    :root{
+      --bg:#f7fcff;
+      --white:#ffffff;
+      --text:#122536;
+      --muted:#64788a;
+      --blue:#5bc7f2;
+      --blue2:#a8e7ff;
+      --deep:#167ca9;
+      --line:rgba(22,124,169,.14);
+      --glass:rgba(255,255,255,.62);
+      --shadow:0 24px 70px rgba(27,136,184,.15);
+      --radius:28px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(141,225,255,.7), transparent 30%),
+        radial-gradient(circle at 90% 4%, rgba(206,246,255,.9), transparent 28%),
+        linear-gradient(180deg,#f7fcff 0%,#ffffff 46%,#effaff 100%);
+      overflow-x:hidden;
+    }
+    body::before{
+      content:""; position:fixed; inset:-10%; pointer-events:none; opacity:.32; z-index:-1;
+      background:linear-gradient(115deg, transparent 0 40%, rgba(91,199,242,.18) 40% 43%, transparent 43% 100%);
+      animation: drift 13s ease-in-out infinite alternate;
+    }
+    @keyframes drift{from{transform:translateX(-3%) translateY(-2%) rotate(0deg)}to{transform:translateX(4%) translateY(2%) rotate(2deg)}}
+    .wrap{width:min(1120px,92vw); margin:auto}
+    header{position:sticky;top:0;z-index:20;backdrop-filter:blur(18px);background:rgba(247,252,255,.68);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{font-weight:800;letter-spacing:.02em}.brand span{color:var(--deep)}
+    .nav a{color:var(--muted);text-decoration:none;margin-left:24px;font-size:14px}.nav a:hover{color:var(--deep)}
+    .hero{min-height:86vh;display:grid;place-items:center;padding:74px 0 48px;position:relative}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.74);border:1px solid var(--line);padding:9px 14px;border-radius:999px;color:var(--deep);font-weight:700;font-size:13px;box-shadow:0 10px 30px rgba(22,124,169,.08)}
+    h1{font-size:clamp(42px,6vw,78px);line-height:1.03;letter-spacing:-.06em;margin:22px 0 20px}.grad{background:linear-gradient(100deg,#1079a8,#56c8f3,#8de4ff);-webkit-background-clip:text;color:transparent}
+    .lead{font-size:clamp(17px,2.1vw,21px);line-height:1.9;color:var(--muted);max-width:680px}
+    .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:999px;text-decoration:none;font-weight:800;border:1px solid var(--line);transition:.25s}.btn.primary{background:linear-gradient(135deg,#34bdea,#9be9ff);color:#083246;box-shadow:0 18px 40px rgba(42,183,229,.28)}.btn.secondary{background:rgba(255,255,255,.75);color:var(--deep)}.btn:hover{transform:translateY(-3px)}
+    .profile-card{position:relative;border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(20px);border-radius:36px;padding:22px;box-shadow:var(--shadow);overflow:hidden}.profile-card::before{content:"";position:absolute;inset:auto -20% -30% -20%;height:45%;background:radial-gradient(ellipse at center,rgba(91,199,242,.28),transparent 70%)}
+    .profile-img{width:100%;aspect-ratio:4/5;border-radius:26px;object-fit:cover;background:linear-gradient(135deg,#dff7ff,#fff);display:block}.photo-placeholder{display:grid;place-items:center;color:var(--deep);font-weight:800;text-align:center;padding:22px}.floating{position:absolute;border:1px solid var(--line);background:rgba(255,255,255,.74);backdrop-filter:blur(18px);border-radius:18px;padding:13px 15px;box-shadow:0 18px 45px rgba(22,124,169,.14);font-weight:800}.f1{left:-16px;top:16%}.f2{right:-20px;top:48%}.f3{left:28px;bottom:24px}.floating small{display:block;color:var(--muted);font-weight:700;margin-top:3px}
+    section{padding:88px 0}.section-head{margin-bottom:34px}.kicker{color:var(--deep);font-weight:900;letter-spacing:.12em;font-size:12px;text-transform:uppercase}.section-head h2{font-size:clamp(30px,4vw,48px);letter-spacing:-.04em;margin:10px 0 12px}.section-head p{color:var(--muted);line-height:1.9;max-width:760px}
+    .about{display:grid;grid-template-columns:.85fr 1.15fr;gap:24px}.card{border:1px solid var(--line);background:rgba(255,255,255,.72);backdrop-filter:blur(14px);border-radius:var(--radius);padding:28px;box-shadow:0 18px 50px rgba(22,124,169,.08)}.card p{color:var(--muted);line-height:1.95}.name{font-size:28px;font-weight:900;margin:0 0 8px}.tag{color:var(--deep);font-weight:800}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.stat strong{font-size:38px;letter-spacing:-.04em;display:block}.stat span{color:var(--muted);font-weight:700;font-size:13px}.stat{min-height:148px;display:flex;flex-direction:column;justify-content:center}
+    .timeline{display:grid;gap:14px}.tl{display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:start;padding:20px;border-radius:22px;background:rgba(255,255,255,.64);border:1px solid var(--line)}.tl b{color:var(--deep)}.tl p{margin:2px 0 0;color:var(--muted);line-height:1.8}
+    .services{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.service{transition:.25s}.service:hover{transform:translateY(-6px)}.icon{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#ddf7ff,#fff);margin-bottom:18px;font-size:22px}.service h3{margin:0 0 10px}.service p{font-size:14px;color:var(--muted);line-height:1.8}
+    .works{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.work{overflow:hidden;padding:0}.thumb{aspect-ratio:16/10;background:linear-gradient(135deg,#d8f5ff,#fff);display:grid;place-items:center;color:var(--deep);font-weight:900;text-align:center;padding:20px}.work-body{padding:20px}.work h3{margin:0 0 8px}.work p{margin:0;color:var(--muted);line-height:1.7;font-size:14px}.work a{display:inline-block;margin-top:14px;color:var(--deep);font-weight:900;text-decoration:none}
+    .message{font-size:clamp(28px,4vw,48px);line-height:1.45;letter-spacing:-.04em;text-align:center;max-width:920px;margin:auto}.message span{color:var(--deep)}
+    .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}.contact-list{display:grid;gap:12px}.contact-list a{padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.75);border:1px solid var(--line);text-decoration:none;color:var(--text);font-weight:800}.contact-list a:hover{color:var(--deep)}
+    footer{padding:34px 0;color:var(--muted);border-top:1px solid var(--line);font-size:13px}
+    .reveal{opacity:0;transform:translateY(22px);transition:.7s ease}.reveal.show{opacity:1;transform:none}
+    @media(max-width:900px){.hero-grid,.about,.contact{grid-template-columns:1fr}.services,.stats{grid-template-columns:repeat(2,1fr)}.works{grid-template-columns:1fr 1fr}.profile-card{max-width:460px;margin:auto}.floating{position:static;margin-top:10px}.nav nav{display:none}}
+    @media(max-width:560px){section{padding:64px 0}.works,.services,.stats{grid-template-columns:1fr}.tl{grid-template-columns:1fr}.hero{padding-top:42px}.cta .btn{width:100%}h1{font-size:42px}}
+  </style>
+</head>
+<body>
+  <!--
+    編集メモ：
+    1. 「山田 花子」を本名に変更
+    2. profile.jpg の部分を写真ファイル名に変更
+    3. Instagram / Threads / Mail のURLを変更
+    4. Portfolio内のURL・再生数・動画説明を差し替え
+  -->
+
+  <header>
+    <div class="wrap nav">
+      <div class="brand">SNS Growth <span>Portfolio</span></div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#career">Career</a>
+        <a href="#works">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">SNS Marketing / AI Video / Growth Partner</div>
+          <h1>SNSを、<br><span class="grad">成果につながる資産</span>へ。</h1>
+          <p class="lead">フォロワーを増やすだけで終わらせず、企業のブランドづくり・企画設計・AI動画制作・分析改善まで伴走します。営業経験で培った顧客理解と、16万人規模のSNS運用経験を活かし、継続的に伸びるSNS運用を支援します。</p>
+          <div class="cta">
+            <a class="btn primary" href="#works">ポートフォリオを見る</a>
+            <a class="btn secondary" href="#contact">相談する</a>
+          </div>
+        </div>
+        <div class="profile-card reveal">
+          <!-- ▼プロフィール写真：images/profile.jpg などに差し替え -->
+          <div class="profile-img photo-placeholder">PROFILE PHOTO<br><small>ここに写真を入れる</small></div>
+          <!-- 画像を使う場合は上のdivを削除し、下のコメントを解除
+          <img class="profile-img" src="images/profile.jpg" alt="プロフィール写真">
+          -->
+          <div class="floating f1">SNS運用<small>Strategy / Growth</small></div>
+          <div class="floating f2">AI動画制作<small>20+ Works</small></div>
+          <div class="floating f3">16万人<small>Account Growth</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about">
+        <div class="card reveal">
+          <p class="tag">About</p>
+          <!-- ▼本名に変更 -->
+          <h2 class="name">山田 花子</h2>
+          <p>SNSマーケティング・AI動画制作を軸に、企業の認知拡大・ファン化・継続的な発信体制づくりを支援しています。</p>
+          <p>新規営業・営業企画として成果を出してきた経験をベースに、単なる投稿制作ではなく「誰に、何を、どう届けるか」から設計します。</p>
+        </div>
+        <div class="card reveal">
+          <p class="tag">What I Do</p>
+          <h2>運用作業ではなく、SNSの勝ち筋づくりから入ります。</h2>
+          <p>得意領域は、SNS戦略設計、投稿企画、AI動画制作、分析改善、アカウントの世界観づくり。企業にURLを送ったときに「この人に相談してみたい」と思ってもらえるよう、実績・思考・制作物が一目で伝わる構成にしています。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="kicker">Achievements</div>
+          <h2>数字で見る実績</h2>
+          <p>ここは後から正確な数値に差し替えてください。営業時は、作品よりもまず数字が見られます。</p>
+        </div>
+        <div class="stats">
+          <div class="card stat reveal"><strong data-count="160000">0</strong><span>SNSフォロワー</span></div>
+          <div class="card stat reveal"><strong data-count="20">0</strong><span>AI動画制作本数</span></div>
+          <div class="card stat reveal"><strong data-count="180000000">0</strong><span>営業年間売上</span></div>
+          <div class="card stat reveal"><strong data-count="120">0</strong><span>年間達成率 %</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="career">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="kicker">Career Story</div>
+          <h2>営業で成果を出し、SNSで成果を再現する。</h2>
+          <p>営業・マーケティング・SNS制作を横断できることが強みです。</p>
+        </div>
+        <div class="timeline">
+          <div class="tl reveal"><b>営業・営業企画</b><p>新規サービスの営業・企画を担当。新人賞、年間VP賞を受賞。顧客理解、提案設計、数値改善の基礎を培う。</p></div>
+          <div class="tl reveal"><b>SNS運用</b><p>AI動画を活用したSNSアカウントを立ち上げ、16万人規模まで成長。企画、世界観設計、継続運用を実践。</p></div>
+          <div class="tl reveal"><b>企業支援</b><p>現在は企業向けにSNSマーケティング、AI動画制作、運用改善を支援。継続案件につながる伴走型の支援を重視。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="kicker">Strength</div>
+          <h2>対応できること</h2>
+        </div>
+        <div class="services">
+          <div class="card service reveal"><div class="icon">📈</div><h3>SNS戦略設計</h3><p>ターゲット、訴求、投稿方針、KPIを整理し、伸ばすための運用方針を設計します。</p></div>
+          <div class="card service reveal"><div class="icon">🎥</div><h3>AI動画制作</h3><p>ショート動画・リール・縦型動画の企画から制作まで対応します。</p></div>
+          <div class="card service reveal"><div class="icon">📱</div><h3>SNS運用代行</h3><p>投稿企画、制作、改善提案まで、継続運用を前提に支援します。</p></div>
+          <div class="card service reveal"><div class="icon">📊</div><h3>分析・改善</h3><p>数値を見ながら、伸びた理由・伸びない理由を分解し、次の施策に反映します。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="works">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="kicker">Portfolio</div>
+          <h2>制作実績・運用アカウント</h2>
+          <p>AI動画は20本ほど掲載想定。まずは代表6本を置き、必要に応じて増やせる構成です。</p>
+        </div>
+        <div class="works">
+          <!-- ▼work01〜06：サムネイル画像、URL、説明、数値を差し替え -->
+          <article class="card work reveal"><div class="thumb">WORK 01<br>サムネイル</div><div class="work-body"><h3>AI動画 / 柴犬ストーリー</h3><p>世界観設計から動画制作まで担当。再生数・保存数などをここに記載。</p><a href="#" target="_blank" rel="noopener">動画を見る →</a></div></article>
+          <article class="card work reveal"><div class="thumb">WORK 02<br>サムネイル</div><div class="work-body"><h3>AI動画 / 商品PR</h3><p>商品の魅力を短尺で伝える構成。冒頭訴求と視聴維持を意識。</p><a href="#" target="_blank" rel="noopener">動画を見る →</a></div></article>
+          <article class="card work reveal"><div class="thumb">WORK 03<br>サムネイル</div><div class="work-body"><h3>SNSアカウント運用</h3><p>アカウントURL、フォロワー数、伸びた投稿の傾向を記載。</p><a href="#" target="_blank" rel="noopener">アカウントを見る →</a></div></article>
+          <article class="card work reveal"><div class="thumb">WORK 04<br>サムネイル</div><div class="work-body"><h3>AI動画 / キャラクター企画</h3><p>キャラクター設計、演出、投稿文まで一貫して制作。</p><a href="#" target="_blank" rel="noopener">動画を見る →</a></div></article>
+          <article class="card work reveal"><div class="thumb">WORK 05<br>サムネイル</div><div class="work-body"><h3>投稿企画・分析改善</h3><p>数値から改善点を抽出し、次回投稿の切り口へ反映。</p><a href="#" target="_blank" rel="noopener">詳細を見る →</a></div></article>
+          <article class="card work reveal"><div class="thumb">WORK 06<br>サムネイル</div><div class="work-body"><h3>企業SNS支援</h3><p>社名非公開の場合は「上場企業A社」など匿名で記載。</p><a href="#" target="_blank" rel="noopener">詳細を見る →</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <p class="message reveal">SNSは、投稿を増やすだけでは伸びません。<br><span>誰に届けるか、何を記憶してもらうか、どう行動につなげるか。</span><br>そこまで設計して、継続的に伴走します。</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap contact">
+        <div class="section-head reveal">
+          <div class="kicker">Contact</div>
+          <h2>ご相談・業務委託のご依頼</h2>
+          <p>継続的なSNS運用、AI動画制作、SNSマーケティング支援のご相談を受け付けています。</p>
+        </div>
+        <div class="contact-list reveal">
+          <!-- ▼連絡先を差し替え -->
+          <a href="mailto:your-email@example.com">Mail：your-email@example.com</a>
+          <a href="#" target="_blank" rel="noopener">Instagram：アカウントURLを入れる</a>
+          <a href="#" target="_blank" rel="noopener">Threads / X：URLを入れる</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2026 SNS Growth Portfolio. All rights reserved.</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+          if(entry.target.classList.contains('stat')) animateCount(entry.target.querySelector('strong'));
+        }
+      })
+    },{threshold:.16});
+    document.querySelectorAll('.reveal,.stat').forEach(el=>observer.observe(el));
+
+    const done = new WeakSet();
+    function animateCount(el){
+      if(!el || done.has(el)) return;
+      done.add(el);
+      const target = Number(el.dataset.count || 0);
+      const duration = 1200;
+      const start = performance.now();
+      function tick(now){
+        const p = Math.min((now-start)/duration,1);
+        const eased = 1 - Math.pow(1-p,3);
+        const value = Math.floor(target*eased);
+        el.textContent = value.toLocaleString('ja-JP');
+        if(p<1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+  </script>
+</body>
+</html>
