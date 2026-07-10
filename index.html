@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>後藤麻衣 | SNS運用支援 / AI動画制作</title>
+  <meta name="description" content="後藤麻衣のポートフォリオ。SNS運用支援、AI動画制作、営業・営業企画の経験を活かした発信支援。" />
+  <style>
+    :root{
+      --bg:#f6fbff;
+      --white:#fff;
+      --text:#08233d;
+      --muted:#5d7488;
+      --blue:#147bd1;
+      --blue2:#4cc9f0;
+      --line:rgba(20,123,209,.16);
+      --shadow:0 24px 70px rgba(36,112,168,.14);
+      --radius:28px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 18% 16%, rgba(76,201,240,.22), transparent 34%),
+        radial-gradient(circle at 84% 22%, rgba(20,123,209,.16), transparent 30%),
+        linear-gradient(180deg,#f7fdff 0%,#eefaff 48%,#ffffff 100%);
+      line-height:1.8;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .container{width:min(1120px, calc(100% - 40px)); margin:0 auto}
+
+    .nav{
+      position:sticky; top:18px; z-index:10;
+      width:min(1120px, calc(100% - 40px));
+      margin:18px auto 0;
+      padding:14px 22px;
+      border:1px solid rgba(255,255,255,.7);
+      border-radius:999px;
+      background:rgba(255,255,255,.78);
+      backdrop-filter:blur(18px);
+      box-shadow:0 16px 50px rgba(80,150,200,.10);
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .brand{font-weight:700;color:#1269bf;letter-spacing:.01em}
+    .nav-links{display:flex;gap:28px;font-size:14px;font-weight:600;color:#16324d}
+
+    .hero{
+      min-height:86vh;
+      display:grid;
+      grid-template-columns:1fr .9fr;
+      gap:72px;
+      align-items:center;
+      padding:88px 0 72px;
+    }
+    .tag{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.82);
+      border:1px solid var(--line);
+      color:var(--blue);
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.08em;
+      box-shadow:0 12px 30px rgba(40,120,180,.08);
+    }
+    .tag::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--blue2);box-shadow:0 0 0 6px rgba(76,201,240,.16)}
+    h1{font-size:clamp(52px,7vw,88px);line-height:1.02;margin:28px 0 10px;font-weight:800;letter-spacing:-.05em}
+    .subtitle{font-size:clamp(24px,3vw,34px);font-weight:700;color:#1269bf;line-height:1.35;margin:0 0 22px}
+    .lead{font-size:17px;color:#29465f;font-weight:500;max-width:560px;margin:0 0 28px}
+    .buttons{display:flex;flex-wrap:wrap;gap:14px;margin:30px 0}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:700;border:1px solid rgba(20,123,209,.25);background:#fff;box-shadow:0 10px 28px rgba(40,120,180,.08);color:#1269bf}
+    .btn.primary{background:linear-gradient(135deg,#38c7f3,#0b72d9);color:#fff;border:none}
+
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;max-width:620px}
+    .stat{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:22px;padding:20px 18px;box-shadow:0 18px 44px rgba(40,120,180,.10)}
+    .stat strong{display:block;font-size:32px;line-height:1;font-weight:800;color:#1277cf;margin-bottom:8px;letter-spacing:-.03em}
+    .stat span{font-size:13px;font-weight:700;color:#344f66;line-height:1.5;display:block}
+    .stat small{display:block;color:#6f8495;font-size:11px;margin-top:5px;font-weight:600}
+
+    .photo-wrap{position:relative;display:flex;justify-content:center;align-items:center}
+    .photo-ring{width:min(430px,80vw);aspect-ratio:1;border-radius:50%;padding:12px;background:rgba(255,255,255,.88);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.9)}
+    .photo-ring img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:8px solid #fff}
+
+    section{padding:78px 0}
+    .section-head{text-align:center;margin-bottom:38px}
+    .eyebrow{font-size:13px;color:var(--blue);font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px}
+    h2{font-size:clamp(30px,4vw,44px);line-height:1.2;margin:0;font-weight:800;letter-spacing:-.04em}
+    .section-desc{color:var(--muted);font-weight:500;margin:14px auto 0;max-width:680px}
+
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:rgba(255,255,255,.76);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+    .card h3{font-size:21px;margin:0 0 10px;letter-spacing:-.02em}
+    .card p{margin:0;color:#4e687d;font-weight:500;font-size:15px}
+
+    .experience{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+
+    /* ===== ここから制作実績エリア ===== */
+    .works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .work-card{
+      display:block;
+      overflow:hidden;
+      border-radius:28px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      transition:.25s ease;
+    }
+    .work-card:hover{transform:translateY(-6px);box-shadow:0 28px 80px rgba(36,112,168,.18)}
+    .work-thumb{
+      position:relative;
+      aspect-ratio:16/10;
+      background:linear-gradient(135deg,#dff7ff,#ffffff);
+      overflow:hidden;
+      display:grid;
+      place-items:center;
+    }
+    .work-placeholder{
+      color:#4f86ad;
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.04em;
+      text-align:center;
+      padding:18px;
+    }
+    .work-thumb img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .work-body{padding:20px}
+    .work-type{font-size:12px;color:var(--blue);font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+    .work-title{font-size:19px;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+    .work-text{font-size:14px;color:#587084;font-weight:500;line-height:1.7;margin:0}
+    /* ===== 制作実績エリアここまで ===== */
+
+    .contact{background:linear-gradient(135deg,rgba(226,248,255,.9),rgba(255,255,255,.95));border:1px solid var(--line);border-radius:34px;padding:42px;text-align:center;box-shadow:var(--shadow)}
+
+    footer{padding:34px 0 50px;text-align:center;color:#7c90a0;font-size:13px}
+
+    @media (max-width:900px){
+      .nav-links{display:none}
+      .hero{grid-template-columns:1fr;gap:44px;text-align:left;padding-top:56px}
+      .photo-wrap{order:-1}.photo-ring{width:min(340px,78vw)}
+      .stats,.cards,.experience,.works-grid{grid-template-columns:1fr}
+      .container{width:min(100% - 28px, 1120px)}
+      .nav{width:min(100% - 28px,1120px)}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="brand" href="#top">Mai Goto</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#works">Works</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div>
+        <div class="tag">SNS / AI CREATIVE / SALES</div>
+        <h1>後藤 麻衣</h1>
+        <p class="subtitle">SNS運用支援 / AI動画制作</p>
+        <p class="lead">
+          SNS運用からAI動画制作まで一貫してサポート。<br>
+          営業・営業企画の経験も活かし、成果につながる発信をご支援します。
+        </p>
+        <div class="buttons">
+          <a class="btn primary" href="#works">制作実績を見る</a>
+          <!-- ▼InstagramのURLをここに入れる -->
+          <a class="btn" href="https://www.instagram.com/shibainu_no_maru/" target="_blank" rel="noopener">Instagram</a>
+          <!-- ▼メールアドレスをここに入れる -->
+          <a class="btn" href="mailto:yourmail@example.com">お問い合わせ</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>15.2万人</strong><span>Instagram成長実績</span><small>※現在は運用者変更済み</small></div>
+          <div class="stat"><strong>70+</strong><span>AI動画制作本数</span></div>
+          <div class="stat"><strong>3年</strong><span>営業・営業企画の経験</span></div>
+        </div>
+      </div>
+      <div class="photo-wrap">
+        <div class="photo-ring">
+          <!-- ▼プロフィール画像：GitHubの images/profile.jpg を表示します -->
+          <img src="images/profile.jpg" alt="後藤麻衣のプロフィール写真" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">About</div>
+        <h2>営業視点を持ったSNS支援</h2>
+        <p class="section-desc">
+          SNSをただ投稿するだけでなく、誰に・何を・どう届けるかを設計し、企画から制作、運用改善まで伴走します。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Experience</div>
+        <h2>経験・実績</h2>
+      </div>
+      <div class="experience">
+        <div class="card">
+          <h3>株式会社ネクスウェイ</h3>
+          <p>製薬会社向け新規サービスの営業・営業企画を3年間担当。営業戦略の立案から顧客提案まで携わり、新人賞・通期VP賞を受賞。</p>
+        </div>
+        <div class="card">
+          <h3>Instagram運用実績</h3>
+          <p>AI動画を活用したInstagramアカウントを15.2万人規模まで成長。<br>※現在は運用者変更済み</p>
+        </div>
+        <div class="card">
+          <h3>企業SNS支援</h3>
+          <p>D2C領域の上場企業を含む企業に対し、AIを用いた商品プロモーション動画の制作やSNS運用を支援。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="works">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Works</div>
+        <h2>制作実績</h2>
+        <p class="section-desc">サムネイル画像とリンクを差し替えるだけで、実績を追加できます。</p>
+      </div>
+
+      <div class="works-grid">
+        <!-- =====================================================
+          作品カード1
+          変更する場所：
+          1. href="ここにInstagramやGoogle DriveのURL"
+          2. img src="works/work01.jpg" → サムネイル画像名
+          3. タイトル・説明文
+        ====================================================== -->
+        <a class="work-card" href="https://www.instagram.com/shibainu_no_maru/" target="_blank" rel="noopener">
+          <div class="work-thumb"><span class="work-placeholder">works/work01.jpg を追加</span><img src="works/work01.jpg" alt="Instagramアカウント運用実績" onerror="this.style.display='none'"></div>
+          <div class="work-body">
+            <div class="work-type">Instagram</div>
+            <div class="work-title">Instagram Growth Account</div>
+            <p class="work-text">AI動画を軸にしたInstagramアカウントを15.2万人規模まで成長。</p>
+          </div>
+        </a>
+
+        <!-- 作品カード2 -->
+        <a class="work-card" href="#" target="_blank" rel="noopener">
+          <div class="work-thumb"><span class="work-placeholder">works/work02.jpg を追加</span><img src="works/work02.jpg" alt="AIショート動画制作実績" onerror="this.style.display='none'"></div>
+          <div class="work-body">
+            <div class="work-type">AI Video</div>
+            <div class="work-title">AI Short Video</div>
+            <p class="work-text">ショート動画・プロモーション動画など、目的に合わせて制作。</p>
+          </div>
+        </a>
+
+        <!-- 作品カード3 -->
+        <a class="work-card" href="#" target="_blank" rel="noopener">
+          <div class="work-thumb"><span class="work-placeholder">works/work03.jpg を追加</span><img src="works/work03.jpg" alt="企業SNS支援実績" onerror="this.style.display='none'"></div>
+          <div class="work-body">
+            <div class="work-type">Client Work</div>
+            <div class="work-title">Client SNS Support</div>
+            <p class="work-text">AIを用いた商品プロモーション動画の制作やSNS運用を支援。</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Services</div>
+        <h2>対応可能業務</h2>
+        <p class="section-desc">SNS運用支援・AI動画制作を中心に、営業経験を活かした提案設計まで対応します。</p>
+      </div>
+      <div class="cards">
+        <div class="card"><h3>SNS運用支援</h3><p>企画設計、投稿設計、運用改善、分析まで対応します。</p></div>
+        <div class="card"><h3>AI動画制作</h3><p>ショート動画、プロモーション動画、SNS向けクリエイティブを制作します。</p></div>
+        <div class="card"><h3>営業・営業企画サポート</h3><p>提案資料作成、営業企画、育成支援などもご相談可能です。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact">
+        <div class="eyebrow">Contact</div>
+        <h2>ご相談はこちら</h2>
+        <p class="section-desc">SNS運用支援、AI動画制作、営業支援のご相談をお受けしています。</p>
+        <div class="buttons" style="justify-content:center">
+          <a class="btn primary" href="mailto:yourmail@example.com">メールで相談する</a>
+          <a class="btn" href="https://www.instagram.com/shibainu_no_maru/" target="_blank" rel="noopener">Instagramを見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>© Mai Goto</footer>
+</body>
+</html>
